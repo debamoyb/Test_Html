@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    height: 250px;
+    width: 900px;
+    background: #ffe;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
