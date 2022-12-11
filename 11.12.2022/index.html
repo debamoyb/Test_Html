@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="head">CREATE YOUR ACCOUNT</h1>
+    <div class="input">
+        <label>Name</label>
+        <input id="name" type="text" placeholder="Enter your name" required>
+    </div><br>
+    <div class="input"> 
+        <label>Email</label>
+        <input id="email" type="text" placeholder="Enter your email id" required>
+    </div><br>
+    <div class="input">
+        <label>Set Password</label>
+        <input id="password" type="password" placeholder="Set a password" required>
+    </div><br>
+    <div class="input">
+        <label>Confirm Password</label>
+        <input id="cnfpass" type="password" placeholder="Confirm your password" required>
+    </div><br>
+    <div class="input">
+        <button id="create">Create</button>  
+    </div>
+    <p id="errormessage"></p>
+    <table id="row">
+        <tr>
+            <td id="namedata">  </td>
+            <td id="emaildata">  </td>
+            <td id="passworddata"> </td>
+        </tr>
+    </table>
+    <script>
+        const name = document.getElementById('name');
+       const create = document.getElementById('create');
+       const email = document.getElementById('email');
+       const password = document.getElementById('password');
+       const cnfpass = document.getElementById('cnfpass');
+       const error = document.getElementById('errormessage');
+       const namedata= document.getElementById('namedata');
+       const emaildata = document.getElementById('emaildata');
+       const passworddata = document.getElementById('passworddata');
+       const row = document.getElementById('row');
+       createButton.addEventListener('click', ()=>{ 
+        if(name.value.length<6 || name.value.length>15){
+            error.innerHTML='name should be 6 to 15 characters';
+            error.style.color='red';
+       }
+        else if(!email.value.includes('@gmail.com','@yahoo.co.in')){
+        error.innerHTML='please enter valid email id';
+        error.style.color='red';
+       }
+       else if(password.value.length<8){  
+        error.innerHTML='password should be 8 characters';
+        error.style.color='red';
+       }
+       else if(cnfpass.value!=password.value){  
+        error.innerHTML='password not match';
+        error.style.color='red';
+       }
+       else{
+        error.innerHTML="Created Successfully!";
+        error.style.color='red';
+        namedata.innerHTML = name.value;
+        emaildata.innerHTML = email.value;
+        passworddata.innerHTML = password.value;
+        namedata.style.border='1px solid black';
+        passworddata.style.border='1px solid black';
+        emaildata.style.border='1px solid black';
+        row.style.border='1px solid black';
+        name.value='';
+        email.value='';
+        password.value='';
+        cnfpass.value='';
+       }
+       })
+    </script>
+</body>
+</html>
